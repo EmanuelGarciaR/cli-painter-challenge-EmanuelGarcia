@@ -26,3 +26,8 @@ class Circle:
         plt.gca().add_patch(circle)
         plt.axis("scaled")
         plt.show()
+
+#Dunder method to representate the circle in format chain
+    def  __str__(self) -> str:
+        x, y = self.center
+        return f"Circle with center at ({x}, {y}) and radius {self.radius}"
