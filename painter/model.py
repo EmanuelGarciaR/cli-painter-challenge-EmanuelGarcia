@@ -7,7 +7,7 @@ import matplotlib as plt
 class Point:
     def __init__(self, x:float, y:float):
         self.x = x
-        self.y = x
+        self.y = y
 
 class Circle:
     def __init__(self, center:Point, radius:float):
@@ -31,7 +31,7 @@ class Circle:
         x, y = self.center
         return f"Circle with center at ({x}, {y}) and radius {self.radius}"
 class Triangle:
-    def __init__(self, point_1: tuple, point_2: tuple,  point_3: tuple):
+    def __init__(self, point_1: Point, point_2: Point,  point_3: Point):
         self.point_1 = point_1
         self.point_2 = point_2
         self.point_3 = point_3
@@ -55,4 +55,22 @@ class Triangle:
         x2, y2 = self.point_2
         x3, y3 = self.point_3
         return f"Triangle with vertices at {x1, y1}, {x2, y2} and {x3, y3}"
+
+class Rectangle:
+    def __init__(self, point_1: Point, point_2: Point):
+        self.point_1 = point_1
+        self.point_2 = point_2
+
+    def area(self) -> float:
+        width = abs(self.point_2.x - self.point_1.x)
+        height = abs(self.point_2.y - self.point_1.y)
+        area_rectangle = width * height
+        return area_rectangle
+#=====test area rectangle ====
+#point_1 = Point(1, 1)
+#point_2 = Point(4, 5)
+#rect = Rectangle(point_1, point_2)
+#area = rect.area()
+
+#print(f"El área del rectángulo es: {area}")
 
