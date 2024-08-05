@@ -1,1 +1,5 @@
 # TODO: Add code here
+class Point:
+    def __init__(self, x:float, y:float):
+        self.x = x
+        self.y = x
