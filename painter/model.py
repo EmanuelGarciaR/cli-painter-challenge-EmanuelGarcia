@@ -33,7 +33,15 @@ class Circle:
         return f"Circle with center at ({x}, {y}) and radius {self.radius}"
 
 class Triangle:
-    def __init__(self, point_1: float, point_2: float,  point_3: float):
+    def __init__(self, point_1: tuple, point_2: tuple,  point_3: tuple):
         self.point_1 = point_1
         self.point_2 = point_2
         self.point_3 = point_3
+
+    def area(self) -> float:
+        x1, y1 = self.point_1
+        x2, y2 = self.point_2
+        x3, y3 = self.point_3
+        area_triangle = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))
+        return area_triangle
+
