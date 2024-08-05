@@ -31,3 +31,9 @@ class Circle:
     def  __str__(self) -> str:
         x, y = self.center
         return f"Circle with center at ({x}, {y}) and radius {self.radius}"
+
+class Triangle:
+    def __init__(self, point_1: float, point_2: float,  point_3: float):
+        self.point_1 = point_1
+        self.point_2 = point_2
+        self.point_3 = point_3
