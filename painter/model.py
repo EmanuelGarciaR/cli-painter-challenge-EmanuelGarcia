@@ -1,6 +1,7 @@
 # TODO: Add code here
 # IMPORTS
 import math
+import matplotlib as plt
 
 
 class Point:
@@ -18,3 +19,10 @@ class Circle:
     def area(self) -> float:
         area_circle = math.pi * self.radius**2
         return area_circle
+
+#Method to draw a circle
+    def draw(self):
+        circle = plt.Circle((self.center.x, self.center.y), self.radius, color="r")
+        plt.gca().add_patch(circle)
+        plt.axis("scaled")
+        plt.show()
