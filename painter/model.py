@@ -8,8 +8,7 @@ class Point:
     def __init__(self, x:float, y:float):
         self.x = x
         self.y = x
-#Una clase Circle con los atributos center de tipo Point y
-# radius de tipo float. Ambos atributos deben ser inicializados con parámetros en el constructor.
+
 class Circle:
     def __init__(self, center:Point, radius:float):
         self.center = center
@@ -31,7 +30,6 @@ class Circle:
     def  __str__(self) -> str:
         x, y = self.center
         return f"Circle with center at ({x}, {y}) and radius {self.radius}"
-
 class Triangle:
     def __init__(self, point_1: tuple, point_2: tuple,  point_3: tuple):
         self.point_1 = point_1
@@ -44,4 +42,17 @@ class Triangle:
         x3, y3 = self.point_3
         area_triangle = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))
         return area_triangle
+
+    def draw(self):
+        x = [self.point_1.x, self.point_2.x, self.point_3.x, self.point_1.x]
+        y = [self.point_1.y, self.point_2.y, self.point_3.y, self.point_1.y]
+        plt.fill(x, y, color='b')
+        plt.axis("scaled")
+        plt.show()
+
+    def __str__(self) -> str:
+        x1, y1 = self.point_1
+        x2, y2 = self.point_2
+        x3, y3 = self.point_3
+        return f"Triangle with vertices at {x1, y1}, {x2, y2} and {x3, y3}"
 
