@@ -8,7 +8,6 @@ class Point:
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
-
 class Circle:
     def __init__(self, center: Point, radius: float):
         self.center = center
@@ -63,7 +62,6 @@ class Triangle:
         xc = self.point_3.x
         yc = self.point_3.y
         return f"Triangle with vertices at {xa, ya}, {xb, yb}, and {xc, yc}"
-
 class Rectangle:
     def __init__(self, point_1: Point, point_2: Point):
         self.point_1 = point_1
@@ -74,11 +72,19 @@ class Rectangle:
         height = abs(self.point_2.y - self.point_1.y)
         area_rectangle = width * height
         return area_rectangle
-#=====test area rectangle ====
-#point_1 = Point(1, 1)
-#point_2 = Point(4, 5)
-#rect = Rectangle(point_1, point_2)
-#area = rect.area()
 
-#print(f"El área del rectángulo es: {area
+    def draw(self):
+        x = [self.point_1.x, self.point_2.x, self.point_2.x, self.point_1.x, self.point_1.x]
+        y = [self.point_1.y, self.point_1.y, self.point_2.y, self.point_2.y, self.point_1.y]
+        plt.fill(x, y, color='g')
+        plt.gca().set_aspect('equal', adjustable='box')
+        plt.show()
+
+
+    def __str__(self):
+        xa = self.point_1.x
+        ya = self.point_1.y
+        xb = self.point_2.x
+        yb = self.point_2.y
+        return f"Rectangle with vertices at {xa, ya} and {xb, yb}"
 
