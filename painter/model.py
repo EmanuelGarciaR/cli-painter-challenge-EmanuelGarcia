@@ -1,22 +1,22 @@
 # TODO: Add code here
 # IMPORTS
 import math
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 class Point:
-    def __init__(self, x:float, y:float):
+    def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
 
 class Circle:
-    def __init__(self, center:Point, radius:float):
+    def __init__(self, center: Point, radius: float):
         self.center = center
         self.radius = radius
 
 #Method circle area
     def area(self) -> float:
-        area_circle = math.pi * self.radius**2
+        area_circle = math.pi * (self.radius**2)
         return area_circle
 
 #Method to draw a circle
@@ -27,9 +27,10 @@ class Circle:
         plt.show()
 
 #Dunder method to representate the circle in format chain
-    def  __str__(self) -> str:
-        x, y = self.center
-        return f"Circle with center at ({x}, {y}) and radius {self.radius}"
+    def __str__(self)-> str:
+        xa = self.center.x
+        ya = self.center.y
+        return f"Circle with center at ({xa}, {ya}) and radius {self.radius}"
 class Triangle:
     def __init__(self, point_1: Point, point_2: Point,  point_3: Point):
         self.point_1 = point_1
@@ -37,10 +38,14 @@ class Triangle:
         self.point_3 = point_3
 
     def area(self) -> float:
-        x1, y1 = self.point_1
-        x2, y2 = self.point_2
-        x3, y3 = self.point_3
-        area_triangle = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))
+        xa = self.point_1.x
+        ya = self.point_1.y
+        xb = self.point_2.x
+        yb = self.point_2.y
+        xc = self.point_3.x
+        yc = self.point_3.y
+
+        area_triangle = 0.5 * abs(xa * (yb - yc) + xb * (yc - ya) + xc * (ya - yb))
         return area_triangle
 
     def draw(self):
@@ -51,10 +56,13 @@ class Triangle:
         plt.show()
 
     def __str__(self) -> str:
-        x1, y1 = self.point_1
-        x2, y2 = self.point_2
-        x3, y3 = self.point_3
-        return f"Triangle with vertices at {x1, y1}, {x2, y2} and {x3, y3}"
+        xa = self.point_1.x
+        ya = self.point_1.y
+        xb = self.point_2.x
+        yb = self.point_2.y
+        xc = self.point_3.x
+        yc = self.point_3.y
+        return f"Triangle with vertices at {xa, ya}, {xb, yb}, and {xc, yc}"
 
 class Rectangle:
     def __init__(self, point_1: Point, point_2: Point):
@@ -72,5 +80,5 @@ class Rectangle:
 #rect = Rectangle(point_1, point_2)
 #area = rect.area()
 
-#print(f"El área del rectángulo es: {area}")
+#print(f"El área del rectángulo es: {area
 
