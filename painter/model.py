@@ -8,30 +8,35 @@ class Point:
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
+
+
 class Circle:
+
     def __init__(self, center: Point, radius: float):
         self.center = center
         self.radius = radius
 
-#Method circle area
+    #Method circle area
     def area(self) -> float:
-        area_circle = math.pi * (self.radius**2)
+        area_circle = math.pi * (self.radius ** 2)
         return area_circle
 
-#Method to draw a circle
+    #Method to draw a circle
     def draw(self):
         circle = plt.Circle((self.center.x, self.center.y), self.radius, color="r")
         plt.gca().add_patch(circle)
         plt.axis("scaled")
         plt.show()
 
-#Dunder method to representate the circle in format chain
-    def __str__(self)-> str:
+    #Dunder method to representate the circle in format chain
+    def __str__(self) -> str:
         xa = self.center.x
         ya = self.center.y
         return f"Circle with center at ({xa}, {ya}) and radius {self.radius}"
+
+
 class Triangle:
-    def __init__(self, point_1: Point, point_2: Point,  point_3: Point):
+    def __init__(self, point_1: Point, point_2: Point, point_3: Point):
         self.point_1 = point_1
         self.point_2 = point_2
         self.point_3 = point_3
@@ -62,6 +67,8 @@ class Triangle:
         xc = self.point_3.x
         yc = self.point_3.y
         return f"Triangle with vertices at {xa, ya}, {xb, yb}, and {xc, yc}"
+
+
 class Rectangle:
     def __init__(self, point_1: Point, point_2: Point):
         self.point_1 = point_1
@@ -80,11 +87,9 @@ class Rectangle:
         plt.gca().set_aspect('equal', adjustable='box')
         plt.show()
 
-
     def __str__(self):
         xa = self.point_1.x
         ya = self.point_1.y
         xb = self.point_2.x
         yb = self.point_2.y
         return f"Rectangle with vertices at {xa, ya} and {xb, yb}"
-
