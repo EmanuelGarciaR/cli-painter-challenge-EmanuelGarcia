@@ -2,6 +2,7 @@
 # IMPORTS
 import math
 import matplotlib.pyplot as plt
+import pickle
 
 
 class Point:
@@ -93,3 +94,33 @@ class Rectangle:
         xb = self.point_2.x
         yb = self.point_2.y
         return f"Rectangle with vertices at {xa, ya} and {xb, yb}"
+
+
+class Painter:
+    FILE = ".painter"
+
+    def __init__(self) -> None:
+        self.shapes: list = []
+        self._load()
+
+    def _load(self) -> None:
+        try:
+            with open(Painter.FILE, "rb") as f:
+                self.shapes = pickle.load(f)
+        except (EOFError, FileNotFoundError):
+            self.shapes = []
+
+    def _save(self) -> None:
+        with open(Painter.FILE, "wb") as f:
+            pickle.dump(self.shapes, f)
+
+    def add_shape(self, shape) -> None:
+        self.shapes.append(shape)
+        self._save()
+
+    def total_area(self) -> float:
+        return sum(shape.area() for shape in self.shapes)
+
+    def clear(self) -> None:
+        self.shapes = []
+        self._save()
